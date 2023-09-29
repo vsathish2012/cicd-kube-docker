@@ -1,12 +1,12 @@
 pipeline {
 
     agent any
-/*
+
 	tools {
         maven "MAVEN3"
         jdk "OracleJDK11"
     }
-*/
+
     environment {
         registry = "vsathishdev/vproappdock"
         registryCredential = 'dockerhub'
@@ -16,7 +16,7 @@ pipeline {
 
         stage('BUILD'){
             steps {
-                sh 'mvn install -DskipTests'
+                sh 'mvn clean install -DskipTests'
             }
             post {
                 success {
